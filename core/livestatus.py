@@ -13,7 +13,7 @@ MessagesDB = {}
 async def GetData(date: str):
     async with aiohttp.ClientSession() as session:
         async with session.get(f"https://www.fotmob.com/?filter={date}") as resp:
-            data = await resp.json()
+            data = await resp.json(content_type='text/html')
             return data
 
 
